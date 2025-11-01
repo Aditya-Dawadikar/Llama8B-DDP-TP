@@ -1,0 +1,10 @@
+torch
+transformers>=4.37.0
+datasets
+peft>=0.6.0
+scipy
+numpy
+boto3
+fvcore
+psutil
+tenacity
