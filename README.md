@@ -1,8 +1,7 @@
 # Llama-3 Fine‑Tuning with DDP, TP, LoRA & AdaLoRA on GLUE
 
-This repository demonstrates how to fine‑tune [Llama‑3](https://huggingface.co/meta-llama) style models on the [GLUE](https://gluebenchmark.com/) benchmark using **Distributed Data Parallel (DDP)**, **Tensor Parallelism (TP)** and parameter‑efficient adapters such as **LoRA** and **AdaLoRA**.  The code is designed to be recruiter‑friendly while still reflecting realistic engineering practices.  It contains training scripts, benchmarking utilities, conversion helpers and setup scripts to reproduce the experiments.
+This repository demonstrates how to fine‑tune [Llama‑3](https://huggingface.co/meta-llama) style models on the [GLUE](https://gluebenchmark.com/) benchmark using **Distributed Data Parallel (DDP)**, **Tensor Parallelism (TP)** and parameter‑efficient adapters such as **LoRA** and **AdaLoRA**.  It contains training scripts, benchmarking utilities, conversion helpers and setup scripts to reproduce the experiments.
 
-> **Disclaimer:** This project is a cleaned‑up and abridged example.  It does **not** contain any proprietary research code or unpublished algorithms, but it illustrates the key engineering steps for distributed fine‑tuning, adapter injection and profiling.  Replace the placeholder values (e.g. S3 bucket names, AWS credentials) with your own before running.
 
 ## Repository Layout
 
@@ -97,7 +96,7 @@ llama_ddp_tp_repo/
 
 ## Notes on LoRA and AdaLoRA
 
-* **LoRA** adds trainable rank‑decomposed matrices to existing weight matrices while keeping the original weights frozen.  This drastically reduces the number of trainable parameters and memory footprint【449126345816786†L0-L1】.
+* **LoRA** adds trainable rank‑decomposed matrices to existing weight matrices while keeping the original weights frozen.  This drastically reduces the number of trainable parameters and memory footprint.
 * **AdaLoRA** extends LoRA by dynamically reallocating the low‑rank budget across layers during training.  It uses the magnitude of gradients to decide which adapters require larger ranks and calls `update_and_allocate()` at each step to adapt the rank allocation.
 
 ## Contribution
